@@ -6,9 +6,9 @@ import 'package:http/http.dart' as http; // httpという変数を通して、ht
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:test_flutter/models/article.dart';
 import 'package:test_flutter/models/user.dart';
-
+import './article_screen.dart';
 import '../widgets/article_container.dart';
-
+import './camera_screen.dart';
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
 
@@ -23,14 +23,38 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Qiita Search'),
+        title: Text('Qiita 123'),
       ),
       body: Column(
         children: [
+          IconButton(
+            onPressed: () {
+              // ここにボタンを押した時に呼ばれるコードを書く
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: ((context) => CameraScreen()),
+                ),
+              );
+            },
+            // 表示アイコン
+            icon: Icon(Icons.camera_alt),
+            // アイコン色
+            color: Colors.red,
+            // サイズ
+            iconSize: 64,
+          ),
+          Text(
+            'Camera',
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
           // 検索ボックス
           Padding(
             padding: const EdgeInsets.symmetric(
-              vertical: 12,
+              vertical: 30,
               horizontal: 36,
             ),
             child: TextField(

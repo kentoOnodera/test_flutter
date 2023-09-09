@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:test_flutter/models/article.dart';
 
 import '../screens/article_screen.dart';
+import '../screens/camera_screen.dart';
 
 class ArticleContainer extends StatelessWidget {
   const ArticleContainer({
@@ -24,6 +25,7 @@ class ArticleContainer extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: ((context) => ArticleScreen(article: article)),
+              // builder: ((context) => CameraScreen()),
             ),
           );
         },
